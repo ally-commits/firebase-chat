@@ -11,3 +11,73 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+.main-container {
+    display: flex;
+}
+.chat-container {
+    width: calc(50vw - 40px);
+    padding: 20px;
+    background-color: rgba(58, 189, 58, 0.384);
+    height: calc((100vh - 40px)); 
+}
+.footer-content {
+    width: calc(50% - 40px);
+    position: fixed;
+    bottom: 0px;
+    margin-bottom: 20px;
+    display: flex;
+    align-items: center;
+}
+.footer-content input {
+    flex: 8;
+    height: 40px;
+    font-size: 16px;
+    text-indent: 15px;
+}
+.footer-content button {
+    flex: 2;
+    height: 46px;
+    margin-left: 10px;
+}
+.chat-content {
+    background-color: white;
+    height: calc(100vh - 100px);
+    width: calc(100%);
+}
+.chat-right,
+.chat-left {
+    display: flex;
+    width: 100%;
+}
+.chat-right span,
+.chat-left span {
+  height: auto !important;
+  display: flex;
+  word-wrap: break-word;
+  flex-direction: column; 
+  margin: 15px 5px;
+  max-width: 70%; 
+  font-size: 14px;
+  padding: 10px;
+  letter-spacing: 0.4px;
+  line-height: 24px;
+  min-width: 100px;
+  border-radius: 2px;
+  box-shadow: 1px 5px 20px rgb(0, 0, 0,0.1);
+}
+.chat-right{
+  justify-content: flex-end;   
+}
+.chat-right span {
+    background-color: rgba(0, 255, 0, 0.384);
+}
+.chat-right small,
+.chat-left small {
+    font-size: 10px;
+}
+.dot {
+    width: 10px;
+    height: 10px;
+    background-color: blue;
+    border-radius: 100px;
+}
