@@ -62,15 +62,16 @@ const Chat = (props) => {
                 console.log(doc.data())
                 if (!doc.exists) {
                     userRef.set({ 
-                        name: "ALWIN",
+                        name: props.userId,
                         profile: "SOME CONTENT",
                         userNotificationCount: 0,
-                        timeStamp: firebase.firestore.FieldValue.serverTimestamp(),
+                        timeStamp: new Date().getTime(),
                         expertNotificationCount: 1,
+                        userId: props.userId
                     });
                 } else {
                     userRef.update({
-                        timeStamp: firebase.firestore.FieldValue.serverTimestamp(),
+                        timeStamp: new Date().getTime(),
                         expertNotificationCount: (doc.data().expertNotificationCount ? doc.data().expertNotificationCount : 0) + 1
                     });
                 }
@@ -86,8 +87,9 @@ const Chat = (props) => {
             .then(doc => { 
                 if (!doc.exists) {
                     userRef.set({
-                        name: "ALWIN",
+                        name: props.userId,
                         profile: "SOME CONTENT",
+                        userId: props.userId,
                         userNotificationCount: 0,
                         timeStamp: firebase.firestore.FieldValue.serverTimestamp(),
                     });

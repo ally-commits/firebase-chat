@@ -7,8 +7,8 @@ import './App.css';
 import Chat from './ChatUser/Chat'
 import ChatExpert from './ChatExpert/Chat'
 import firebase from 'firebase/compat/app';
-import 'firebase/compat/firestore';
-import ChatList from './ChatList/ChatList';
+import 'firebase/compat/firestore'; 
+import EChatList from './EChatList/EChatList';
 
 const firebaseConfig = {
     apiKey: "AIzaSyCTDCkTO6M0vaRCeRtya0rJRLrGlPzzm-A",
@@ -27,7 +27,7 @@ export const db = firebaseApp.firestore();
 
 const App = () => {
     const [userId,setUserId] = React.useState(false);
-    
+    const [active,setActive] = React.useState(false)
     React.useEffect(() => {
         let value = prompt("Enter USER ID");
         setUserId(value)
@@ -36,9 +36,14 @@ const App = () => {
         <div className='main-container'>
             {userId &&
                 <React.Fragment>
-                    <ChatExpert userId={userId} />
+                    <EChatList 
+                        active={active}
+                        setActive={setActive}
+                    />
+                    {active && 
+                    <ChatExpert userId={active} />}
                     <Chat userId={userId}/>  
-                    {/* <ChatList /> */}
+                    
                 </React.Fragment>
             }
         </div>
